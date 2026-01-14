@@ -10,7 +10,7 @@
 #### Term list
 
 | Label | IRI / Identifier | Definition | Source | Definition Source | Parent | Equivalent To | Version / Status |
-|:---|:---|:---|:---|:---|:---|:---|
+|:---|:---|:---|:---|:---|:---|:---|:---|
 | **dialogue** | `:Dialogue` | an interactive communication between two or more entities |  | https://www.oed.com/dictionary/dialogue_n, | [SIO (Process)](http://semanticscience.org/resource/SIO_000006) |  |  |
 | **utterance** | `:Utterance` | a single unit of speech in spoken language that serves some pragmatic function | | SIO Core | [SIO (Process)](http://semanticscience.org/resource/SIO_000006) |  |  |
 | **interlocutor** | `:Interlocutor` | The role played by an agent when producing an utterance. |  |  | [SIO (Agent)](http://semanticscience.org/resource/SIO_000397) | dialogue participant |  |
