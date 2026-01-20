@@ -17,38 +17,28 @@
 #    Annotation properties
 #################################################################
 
-###  http://purl.org/twc/dido#inResponseTo
-:inResponseTo rdf:type owl:AnnotationProperty ;
-              rdfs:label "in response to" .
-
-
-###  http://purl.org/twc/dido#isAgreementWith
-:isAgreementWith rdf:type owl:AnnotationProperty ;
-                 rdfs:subPropertyOf :inResponseTo .
-
-
 ###  http://purl.org/twc/dido#isAnswerTo
-:isAnswerTo rdf:type owl:AnnotationProperty ;
-            rdfs:subPropertyOf :inResponseTo .
+:isAnswerTo rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/twc/dido#isClarificationOf
-:isClarificationOf rdf:type owl:AnnotationProperty ;
-                   rdfs:subPropertyOf :inResponseTo .
+:isClarificationOf rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/twc/dido#isContinuationOf
-:isContinuationOf rdf:type owl:AnnotationProperty ;
-                  rdfs:subPropertyOf :inResponseTo .
+:isContinuationOf rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/twc/dido#isRepetitionOf
-:isRepetitionOf rdf:type owl:AnnotationProperty ;
-                rdfs:subPropertyOf :inResponseTo .
+:isRepetitionOf rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2004/02/skos/core#definition
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#definition
+prov:definition rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -69,7 +59,10 @@ sio:partOf rdf:type owl:ObjectProperty .
 
 ###  http://www.w3.org/ns/prov#wasAttributedTo
 prov:wasAttributedTo rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf owl:topObjectProperty .
+                     rdfs:comment "Attribution is the ascribing of an entity to an agent."@en ;
+                     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                     rdfs:label "wasAttributedTo" ;
+                     prov:definition "Attribution is the ascribing of an entity to an agent."@en .
 
 
 #################################################################
@@ -83,10 +76,16 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
           <http://www.w3.org/2004/02/skos/core#definition> "an interactive communication between two or more entities" .
 
 
+###  http://purl.org/twc/dido#Interlocutor
+:Interlocutor rdf:type owl:Class ;
+              rdfs:subClassOf sio:SIO_000016 ;
+              rdfs:label "interlocutor" ;
+              <http://www.w3.org/2004/02/skos/core#definition> "One who takes part in a conversation or dialogue" .
+
+
 ###  http://purl.org/twc/dido#Utterance
 :Utterance rdf:type owl:Class ;
            rdfs:subClassOf sio:SIO_000006 ,
-                           owl:Thing ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty sio:partOf ;
                              owl:someValuesFrom :Dialogue
