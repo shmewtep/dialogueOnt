@@ -75,13 +75,26 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
 
 ###  http://purl.org/twc/dido#Dialogue
 :Dialogue rdf:type owl:Class ;
-          rdfs:subClassOf sio:SIO_000006 ;
+          rdfs:subClassOf sio:SIO_000006 ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty sio:SIO_000028 ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Utterance
+                          ] ;
           rdfs:label "dialogue" ;
           <http://www.w3.org/2004/02/skos/core#definition> "an interactive communication between two or more entities" .
 
 
 ###  http://purl.org/twc/dido#Interlocutor
 :Interlocutor rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( sio:SIO_000000
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty sio:SIO_000062 ;
+                                                           owl:someValuesFrom :Dialogue
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
               rdfs:subClassOf sio:SIO_000016 ;
               rdfs:label "interlocutor" ;
               <http://www.w3.org/2004/02/skos/core#definition> "One who takes part in a conversation or dialogue" .
@@ -92,7 +105,8 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
            rdfs:subClassOf sio:SIO_000006 ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty sio:SIO_000068 ;
-                             owl:someValuesFrom :Dialogue
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Dialogue
                            ] ;
            rdfs:label "utterance" ;
            <http://www.w3.org/2004/02/skos/core#definition> "a single unit of speech in spoken language that serves some pragmatic function" .

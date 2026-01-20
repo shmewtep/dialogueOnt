@@ -114,6 +114,18 @@
                                                  <http://www.w3.org/2004/02/skos/core#example> "a car is a participant in a car race; glucose is a participant in glycolysis"@en .
 
 
+###  http://semanticscience.org/resource/SIO_000063
+<http://semanticscience.org/resource/SIO_000063> rdf:type owl:ObjectProperty ;
+                                                 rdfs:subPropertyOf <http://semanticscience.org/resource/SIO_000062> ;
+                                                 owl:inverseOf <http://semanticscience.org/resource/SIO_000139> ;
+                                                 <http://purl.org/dc/elements/1.1/identifier> "SIO_000063" ;
+                                                 <http://purl.org/dc/terms/description> "is agent in is a relation between an entity and a process, where the entity is present throughout the process, no permanent material change occurs, and is a causal participant in the process."@en ;
+                                                 <http://semanticscience.org/resource/subset> "sadi"@en ;
+                                                 rdfs:isDefinedBy <http://semanticscience.org/ontology/sio.owl> ;
+                                                 rdfs:label "is agent in"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#example> "hexokinase is an agent in the conversion of glucose to glucose-6-phosphate"@en .
+
+
 ###  http://semanticscience.org/resource/SIO_000068
 <http://semanticscience.org/resource/SIO_000068> rdf:type owl:ObjectProperty ;
                                                  rdfs:subPropertyOf <http://semanticscience.org/resource/SIO_000061> ;
@@ -137,6 +149,18 @@
                                                  <http://semanticscience.org/resource/subset> "core" ;
                                                  rdfs:isDefinedBy <http://semanticscience.org/ontology/sio.owl> ;
                                                  rdfs:label "has participant"@en .
+
+
+###  http://semanticscience.org/resource/SIO_000139
+<http://semanticscience.org/resource/SIO_000139> rdf:type owl:ObjectProperty ;
+                                                 rdfs:subPropertyOf <http://semanticscience.org/resource/SIO_000132> ;
+                                                 <http://purl.org/dc/elements/1.1/identifier> "SIO_000139" ;
+                                                 <http://purl.org/dc/terms/description> "has agent is a relation between a process and an entity, where the entity is present throughout the process and is a causal participant in the process."@en ;
+                                                 <http://semanticscience.org/resource/equivalentTo> "OBO_REL:has_agent" ;
+                                                 <http://semanticscience.org/resource/subset> "core" ,
+                                                                                              "sadi"@en ;
+                                                 rdfs:isDefinedBy <http://semanticscience.org/ontology/sio.owl> ;
+                                                 rdfs:label "has agent"@en .
 
 
 ###  http://semanticscience.org/resource/SIO_000145
@@ -178,8 +202,8 @@
                                                  owl:inverseOf <http://semanticscience.org/resource/SIO_000232> ;
                                                  <http://purl.org/dc/elements/1.1/identifier> "SIO_000229" ;
                                                  <http://purl.org/dc/terms/description> "has output is a relation between an process and an entity, where the entity is present at the end of the process."@en ;
-                                                 <http://semanticscience.org/resource/subset> "core" ,
-                                                                                              "sadi"@en ;
+                                                 <http://semanticscience.org/resource/subset> "sadi"@en ,
+                                                                                              "core" ;
                                                  rdfs:isDefinedBy <http://semanticscience.org/ontology/sio.owl> ;
                                                  rdfs:label "has output"@en .
 
