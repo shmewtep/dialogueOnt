@@ -1,1 +1,3 @@
 http://semanticscience.org/resource/SIO_000016
+http://semanticscience.org/resource/SIO_000006
+http://semanticscience.org/resource/SIO_000776
