@@ -37,8 +37,20 @@
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/ns/prov#component
+prov:component rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/ns/prov#definition
 prov:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#inverse
+prov:inverse rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#qualifiedForm
+prov:qualifiedForm rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -47,14 +59,6 @@ prov:definition rdf:type owl:AnnotationProperty .
 
 ###  http://semanticscience.org/resource/hasFunction
 sio:hasFunction rdf:type owl:ObjectProperty .
-
-
-###  http://semanticscience.org/resource/isAbout
-sio:isAbout rdf:type owl:ObjectProperty .
-
-
-###  http://semanticscience.org/resource/partOf
-sio:partOf rdf:type owl:ObjectProperty .
 
 
 ###  http://www.w3.org/ns/prov#wasAttributedTo
@@ -87,7 +91,7 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
 :Utterance rdf:type owl:Class ;
            rdfs:subClassOf sio:SIO_000006 ,
                            [ rdf:type owl:Restriction ;
-                             owl:onProperty sio:partOf ;
+                             owl:onProperty sio:SIO_000068 ;
                              owl:someValuesFrom :Dialogue
                            ] ;
            rdfs:label "utterance" ;

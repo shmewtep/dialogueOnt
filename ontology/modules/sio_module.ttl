@@ -4,7 +4,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://semanticscience.org/ontology/sio.owl> .
+@base <http://semanticscience.org/ontology/sio.owl#> .
 
 <http://semanticscience.org/ontology/sio.owl> rdf:type owl:Ontology .
 
@@ -102,6 +102,18 @@
                                                  <http://www.w3.org/2004/02/skos/core#example> "A parasite in the interior of a person's intestine is located in their intestinal lumen."@en .
 
 
+###  http://semanticscience.org/resource/SIO_000062
+<http://semanticscience.org/resource/SIO_000062> rdf:type owl:ObjectProperty ;
+                                                 rdfs:subPropertyOf <http://semanticscience.org/resource/SIO_000322> ;
+                                                 owl:inverseOf <http://semanticscience.org/resource/SIO_000132> ;
+                                                 rdfs:range <http://semanticscience.org/resource/SIO_000006> ;
+                                                 <http://purl.org/dc/elements/1.1/identifier> "SIO_000062" ;
+                                                 <http://purl.org/dc/terms/description> "is participant in is a relation that describes the participation of the subject in the (processual) object."@en ;
+                                                 rdfs:isDefinedBy <http://semanticscience.org/ontology/sio.owl> ;
+                                                 rdfs:label "is participant in"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#example> "a car is a participant in a car race; glucose is a participant in glycolysis"@en .
+
+
 ###  http://semanticscience.org/resource/SIO_000068
 <http://semanticscience.org/resource/SIO_000068> rdf:type owl:ObjectProperty ;
                                                  rdfs:subPropertyOf <http://semanticscience.org/resource/SIO_000061> ;
@@ -113,6 +125,18 @@
                                                  <http://semanticscience.org/resource/subset> "core" ;
                                                  rdfs:isDefinedBy <http://semanticscience.org/ontology/sio.owl> ;
                                                  rdfs:label "is part of"@en .
+
+
+###  http://semanticscience.org/resource/SIO_000132
+<http://semanticscience.org/resource/SIO_000132> rdf:type owl:ObjectProperty ;
+                                                 rdfs:subPropertyOf <http://semanticscience.org/resource/SIO_000322> ;
+                                                 rdfs:domain <http://semanticscience.org/resource/SIO_000006> ;
+                                                 <http://purl.org/dc/elements/1.1/identifier> "SIO_000132" ;
+                                                 <http://purl.org/dc/terms/description> "has participant is a relation that describes the participation of the object in the (processual) subject."@en ;
+                                                 <http://semanticscience.org/resource/equivalentTo> "OBO_REL:has_participant" ;
+                                                 <http://semanticscience.org/resource/subset> "core" ;
+                                                 rdfs:isDefinedBy <http://semanticscience.org/ontology/sio.owl> ;
+                                                 rdfs:label "has participant"@en .
 
 
 ###  http://semanticscience.org/resource/SIO_000145
@@ -146,6 +170,29 @@
                                                  <http://purl.org/dc/terms/description> "is property of is a relation betweena  quality, capability or role and the entity that it and it alone bears."@en ;
                                                  rdfs:isDefinedBy <http://semanticscience.org/ontology/sio.owl> ;
                                                  rdfs:label "is property of"@en .
+
+
+###  http://semanticscience.org/resource/SIO_000229
+<http://semanticscience.org/resource/SIO_000229> rdf:type owl:ObjectProperty ;
+                                                 rdfs:subPropertyOf <http://semanticscience.org/resource/SIO_000132> ;
+                                                 owl:inverseOf <http://semanticscience.org/resource/SIO_000232> ;
+                                                 <http://purl.org/dc/elements/1.1/identifier> "SIO_000229" ;
+                                                 <http://purl.org/dc/terms/description> "has output is a relation between an process and an entity, where the entity is present at the end of the process."@en ;
+                                                 <http://semanticscience.org/resource/subset> "core" ,
+                                                                                              "sadi"@en ;
+                                                 rdfs:isDefinedBy <http://semanticscience.org/ontology/sio.owl> ;
+                                                 rdfs:label "has output"@en .
+
+
+###  http://semanticscience.org/resource/SIO_000232
+<http://semanticscience.org/resource/SIO_000232> rdf:type owl:ObjectProperty ;
+                                                 rdfs:subPropertyOf <http://semanticscience.org/resource/SIO_000062> ;
+                                                 <http://purl.org/dc/elements/1.1/identifier> "SIO_000232" ;
+                                                 <http://purl.org/dc/terms/description> "is output of is a relation between an entity and a process, where the entity is present at the end of the process."@en ;
+                                                 <http://semanticscience.org/resource/subset> "sadi"@en ;
+                                                 rdfs:isDefinedBy <http://semanticscience.org/ontology/sio.owl> ;
+                                                 rdfs:label "is output of"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#example> "glucose-6-phosphate and ADP are outputs in the hexokinase-mediated conversion of glucose to glucose-6-phosphate."@en .
 
 
 ###  http://semanticscience.org/resource/SIO_000322
@@ -293,4 +340,4 @@
 ] .
 
 
-###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
