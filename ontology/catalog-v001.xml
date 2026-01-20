@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://semanticscience.org/ontology/sio.owl" uri="https://raw.githubusercontent.com/shmewtep/dialogueOnt/refs/heads/main/ontology/modules/sio_module.ttl?token=GHSAT0AAAAAADSUHWA7WFLGMJMOMMDVEGYE2LP7UTA"/>
     <uri id="Imports Wizard Entry" name="http://semanticscience.org/ontology/sio.owl" uri="https://raw.githubusercontent.com/shmewtep/dialogueOnt/refs/heads/main/ontology/modules/sio_module.ttl?token=GHSAT0AAAAAADSUHWA6Y7KFS5V3FLCASHKO2LP7CFA"/>
     <uri id="Imports Wizard Entry" name="http://purl.org/twc/dido" uri="https://raw.githubusercontent.com/shmewtep/dialogueOnt/refs/heads/main/ontology/dido.ttl?token=GHSAT0AAAAAADSUHWA733U7W2SGSSQKGHFI2LP7BOA"/>
     <uri id="Imports Wizard Entry" name="http://semanticscience.org/ontology/sio.owl" uri="modules/sio_module.ttl"/>
