@@ -80,6 +80,11 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
                             owl:onProperty sio:SIO_000028 ;
                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                             owl:onClass :Utterance
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty sio:SIO_000132 ;
+                            owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Interlocutor
                           ] ;
           rdfs:label "dialogue" ;
           <http://www.w3.org/2004/02/skos/core#definition> "an interactive communication between two or more entities" .
@@ -95,7 +100,12 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
                                                        ) ;
                                     rdf:type owl:Class
                                   ] ;
-              rdfs:subClassOf sio:SIO_000016 ;
+              rdfs:subClassOf sio:SIO_000016 ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty sio:SIO_000063 ;
+                                owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :Utterance
+                              ] ;
               rdfs:label "interlocutor" ;
               <http://www.w3.org/2004/02/skos/core#definition> "One who takes part in a conversation or dialogue" .
 
@@ -107,6 +117,11 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
                              owl:onProperty sio:SIO_000068 ;
                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onClass :Dialogue
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty sio:SIO_000139 ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Interlocutor
                            ] ;
            rdfs:label "utterance" ;
            <http://www.w3.org/2004/02/skos/core#definition> "a single unit of speech in spoken language that serves some pragmatic function" .
