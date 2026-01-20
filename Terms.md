@@ -13,7 +13,7 @@
 |:---|:---|:---|:---|:---|:---|:---|:---|
 | **dialogue** | `:Dialogue` | an interactive communication between two or more entities |  | https://www.oed.com/dictionary/dialogue_n, | [SIO (Process)](http://semanticscience.org/resource/SIO_000006) |  |  |
 | **utterance** | `:Utterance` | a single unit of speech in spoken language that serves some pragmatic function | | SIO Core | [SIO (Process)](http://semanticscience.org/resource/SIO_000006) |  |  |
-| **interlocutor** | `:Interlocutor` | The role played by an agent when producing an utterance. |  |  | [SIO (Role)](http://semanticscience.org/resource/SIO_000016) | dialogue participant |  |
+| **interlocutor** | `:Interlocutor` | One who takes part in a dialogue or conversation |  |  | [SIO (Role)](http://semanticscience.org/resource/SIO_000016) | dialogue participant |  |
 
 
 
