@@ -15,7 +15,7 @@
 | **utterance** | `:Utterance` | a single unit of speech in spoken language that serves some pragmatic function | | | [SIO (Process)](http://semanticscience.org/resource/SIO_000006) | Process | Draft |
 | **interlocutor** | `:Interlocutor` | One who takes part in a dialogue or conversation |  |  | [SIO (Role)](http://semanticscience.org/resource/SIO_000016) | Agent | Draft |
 | **utterance text** | `:UtteranceText` |  |  |  | [SIO (Information Content Entity)](http://semanticscience.org/resource/SIO_000015) | Data | Draft |
-| **dialogue transcript** | `:DialogueTranscript` | A digital or physical information content entity that provides a comprehensive, structured textual record of a dialogue process |  |  | [SIO (Information Content Entity)](http://semanticscience.org/resource/SIO_000015) | Data | Draft |
+| **dialogue transcript** | `:DialogueTranscript` | A digital or physical information content entity that provides a structured textual record of a conversation |  |  | [SIO (Information Content Entity)](http://semanticscience.org/resource/SIO_000015) | Data | Draft |
 
 
 
