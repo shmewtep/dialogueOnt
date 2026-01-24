@@ -15,3 +15,4 @@ python scripts/download_align_meddialog.py --url https://example.org/meddialog-s
 ```
 
 The script writes an RDF Turtle file aligned with the `http://purl.org/twc/dido#` ontology.
+

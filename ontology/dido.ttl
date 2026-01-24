@@ -17,21 +17,6 @@
 #    Annotation properties
 #################################################################
 
-###  http://purl.org/twc/dido#isAnswerTo
-:isAnswerTo rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/twc/dido#isClarificationOf
-:isClarificationOf rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/twc/dido#isContinuationOf
-:isContinuationOf rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/twc/dido#isRepetitionOf
-:isRepetitionOf rdf:type owl:AnnotationProperty .
-
 
 ###  http://www.w3.org/2004/02/skos/core#definition
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
