@@ -1,4 +1,5 @@
 @prefix : <http://purl.org/twc/dido#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix ex: <http://example.org/instance/> .
 @prefix ont: <http://example.org/ontology/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -8,37 +9,44 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @base <http://purl.org/twc/dido#> .
 
 <http://purl.org/twc/dido> rdf:type owl:Ontology ;
                             owl:imports <http://semanticscience.org/ontology/sio.owl> ;
-                            <http://purl.org/dc/elements/1.1/creator> "Kelsey Rook"@en ;
-                            <http://purl.org/dc/terms/license> "https://opensource.org/license/mit"^^xsd:anyURI ;
-                            <http://purl.org/dc/terms/modified> "2026-1-23" .
+                            dc:creator "Kelsey Rook"@en ;
+                            dcterms:license "https://opensource.org/license/mit"^^xsd:anyURI ;
+                            dcterms:modified "2026-1-23" ;
+                            vann:preferredNamespaceUri "dido" .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
 ###  http://purl.org/dc/elements/1.1/contributor
-<http://purl.org/dc/elements/1.1/contributor> rdf:type owl:AnnotationProperty .
+dc:contributor rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/creator
-<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+dc:creator rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/identifier
-<http://purl.org/dc/elements/1.1/identifier> rdf:type owl:AnnotationProperty .
+dc:identifier rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/license
-<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty ;
-                                   <http://purl.org/dc/elements/1.1/identifier> "license" .
+dcterms:license rdf:type owl:AnnotationProperty ;
+                dc:identifier "license" .
 
 
 ###  http://purl.org/dc/terms/modified
-<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+dcterms:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2004/02/skos/core#definition
