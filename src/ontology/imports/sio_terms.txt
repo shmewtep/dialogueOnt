@@ -1,3 +1,14 @@
-http://semanticscience.org/resource/SIO_000016
+http://semanticscience.org/resource/SIO_000000
 http://semanticscience.org/resource/SIO_000006
+http://semanticscience.org/resource/SIO_000015
+http://semanticscience.org/resource/SIO_000016
+http://semanticscience.org/resource/SIO_000069
+http://semanticscience.org/resource/SIO_000075
+http://semanticscience.org/resource/SIO_000089
+http://semanticscience.org/resource/SIO_000289
+http://semanticscience.org/resource/SIO_000340
+http://semanticscience.org/resource/SIO_000602
+http://semanticscience.org/resource/SIO_000614
+http://semanticscience.org/resource/SIO_000616
 http://semanticscience.org/resource/SIO_000776
+http://semanticscience.org/resource/SIO_001353
