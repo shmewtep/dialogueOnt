@@ -15,4 +15,4 @@
 
 #### Tools used
 
-* [OntoTool](https://github.com/memb3r/ontotool)
+* [WIDOCO](https://dgarijo.github.io/Widoco/)
