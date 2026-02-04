@@ -257,7 +257,7 @@ endif
 # ROBOT report
 # ----------------------------------------
 $(REPORTDIR)/%-report.tsv: % | $(REPORTDIR)
-	$(ROBOT) report -i $< $(REPORT_LABEL) $(REPORT_PROFILE_OPTS) --fail-on $(REPORT_FAIL_ON) --print 5 -o $@
+	$(ROBOT) report -i $< $(REPORT_LABEL) $(REPORT_PROFILE_OPTS) --fail-on $(REPORT_FAIL_ON) --print 5 -o .$@
 
 # ----------------------------------------
 # Sparql queries: Exports

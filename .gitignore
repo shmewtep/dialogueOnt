@@ -25,6 +25,7 @@ src/ontology/ontologyterms.txt
 src/ontology/simple_seed.txt
 src/ontology/patterns
 src/ontology/merged-dido-edit.owl
+src/ontology/dido-edit.ttl-report.tsv
 
 src/ontology/target/
 src/ontology/tmp/*
