@@ -18,6 +18,10 @@ TEMPDIR := 				tmp
 RELEASEDIR := 			../..
 MODULE_DIR := 			modules
 
+REPORT_FAIL_ON =            None
+REPORT_LABEL =              -l true
+REPORT_PROFILE_OPTS =  
+
 TODAY ?= 				$(shell date +%Y-%m-%d)
 VERSION = 				$(TODAY)
 ANNOTATE_ONTOLOGY_VERSION = annotate -V $(URI)/releases/$(VERSION)/$@ --annotation owl:versionInfo $(VERSION)
@@ -159,19 +163,18 @@ PRESEED=$(TMPDIR)/pre_seed.txt
 
 $(SRCMERGED): $(SRC)
 	$(ROBOT) remove --input $< --select imports --trim false \
-		merge  $(patsubst %, -i %, $(OTHER_SRC)) -o $@
+		merge  $(patsubst %, -i %, $(OTHER_SRC)) -o .$@
 
 $(PRESEED): $(SRCMERGED)
-	$(ROBOT) query -f csv -i $< --query ../sparql/terms.sparql $@.tmp &&\
-	cat $@.tmp | sort | uniq >  $@
-
+	$(ROBOT) query -f csv -i .$< --query ../sparql/terms.sparql .$@.tmp &&\
+	cat .$@.tmp | sort | uniq >  .$@
 
 
 ALLSEED = $(PRESEED) \
 
 
 $(IMPORTSEED):  $(ALLSEED) 
-	if [ $(IMP) = true ]; then cat $(ALLSEED) | sort | uniq > $@; fi
+	if [ $(IMP) = true ]; then cat $(ALLSEED) | sort | uniq > .$@; fi
 
 
 ANNOTATION_PROPERTIES=rdfs:label IAO:0000115 
@@ -253,7 +256,7 @@ endif
 # ----------------------------------------
 # ROBOT report
 # ----------------------------------------
-$(REPORTDIR)/%-obo-report.tsv: % | $(REPORTDIR)
+$(REPORTDIR)/%-report.tsv: % | $(REPORTDIR)
 	$(ROBOT) report -i $< $(REPORT_LABEL) $(REPORT_PROFILE_OPTS) --fail-on $(REPORT_FAIL_ON) --print 5 -o $@
 
 # ----------------------------------------
@@ -290,8 +293,8 @@ $(ONT).owl: $(ONT)-full.owl
 	$(ROBOT) annotate --input $< --ontology-iri $(URIBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
 		convert -o $@.tmp.owl && mv $@.tmp.owl $@
 
-$(ONT).obo: $(ONT).owl
-	$(ROBOT) convert --input $< --check false -f obo $(OBO_FORMAT_OPTIONS) -o $@.tmp.obo && grep -v ^owl-axioms $@.tmp.obo > $@ && rm $@.tmp.obo
+$(ONT).ttl: $(ONT).owl
+	$(ROBOT) convert --input $< --check false -f ttl -o $@.tmp.ttl && grep -v ^owl-axioms $@.tmp.ttl > $@ && rm $@.tmp.ttl
 
 
 # -----------------------------------------------------
@@ -306,7 +309,7 @@ $(ONTOLOGYTERMS): $(SRC) $(OTHER_SRC)
 
 
 # base: OTHER sources of interest, such as definitions owl
-$(ONT)-base.owl: $(SRC) $(OTHER_SRC)
+$(ONT)-base.ttl: $(SRC) $(OTHER_SRC)
 	$(ROBOT) remove --input $< --select imports --trim false \
 		merge $(patsubst %, -i %, $(OTHER_SRC)) \
 		annotate --link-annotation http://purl.org/dc/elements/1.1/type http://purl.obolibrary.org/obo/IAO_8000001 \
@@ -314,7 +317,7 @@ $(ONT)-base.owl: $(SRC) $(OTHER_SRC)
 		--output $@.tmp.owl && mv $@.tmp.owl $@
 
 # Full: The full artefacts with imports merged, reasoned
-$(ONT)-full.owl: $(SRC) $(OTHER_SRC)
+$(ONT)-full.ttl: $(SRC) $(OTHER_SRC)
 	$(ROBOT) merge --input $< \
 		reason --reasoner ELK --equivalent-classes-allowed all --exclude-tautologies structural \
 		relax \

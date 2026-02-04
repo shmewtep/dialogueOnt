@@ -18,6 +18,7 @@ src/ontology/dido-simple.*
 src/ontology/dido-simple-non-classified.*
 
 src/ontology/seed.txt
+src/ontology/pre_seed.txt
 src/ontology/dosdp-tools.log
 src/ontology/ed_definitions_merged.owl
 src/ontology/ontologyterms.txt

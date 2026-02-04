@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="https://purl.org/dido/releases/2026-02-04/imports/sio_import.owl" uri="imports/sio_import.owl"/>
     <uri id="Imports Wizard Entry" name="http://semanticscience.org/ontology/sio.owl" uri="imports/sio_import.ttl"/>
-    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1770245838472" name="http://semanticscience.org/ontology/sio.owl" uri="mirror/sio.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770245838472" name="duplicate:urn:absolute:/dido-base.ttl" uri="dido-base.ttl"/>
+        <uri id="Automatically generated entry, Timestamp=1770245838472" name="duplicate:urn:absolute:/dido-base.ttl" uri="dido-base.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770245838472" name="duplicate:urn:absolute:/dido-full.ttl" uri="dido-full.ttl"/>
+        <uri id="Automatically generated entry, Timestamp=1770245838472" name="duplicate:urn:absolute:/dido-full.ttl" uri="dido-full.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770245838472" name="urn:absolute:/dido.owl" uri="dido.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770245838472" name="urn:absolute:/imports/sio_import.owl" uri="imports/sio_import.owl"/>
+    </group>
 </catalog>
