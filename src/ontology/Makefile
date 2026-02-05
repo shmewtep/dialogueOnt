@@ -26,9 +26,9 @@ TMPDIR := 				tmp
 RELEASEDIR := 			../..
 MODULE_DIR := 			modules
 
-REPORT_FAIL_ON =            None
-REPORT_LABEL =              -l true
-REPORT_PROFILE_OPTS =  
+REPORT_FAIL_ON =        None
+REPORT_LABEL =          -l true
+REPORT_PROFILE_OPTS = 	--profile report-profile.txt
 
 TODAY ?= 				$(shell date +%Y-%m-%d)
 VERSION = 				$(TODAY)
@@ -184,8 +184,6 @@ ALLSEED = $(PRESEED) \
 $(IMPORTSEED):  $(ALLSEED) 
 	if [ $(IMP) = true ]; then cat $(ALLSEED) | sort | uniq > $(abspath $@); fi
 
-
-ANNOTATION_PROPERTIES=rdfs:label IAO:0000115 
 
 # -- Generate Import Modules --
 #

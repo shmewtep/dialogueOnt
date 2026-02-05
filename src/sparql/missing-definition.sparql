@@ -1,0 +1,47 @@
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+SELECT DISTINCT ?entity ?property ?value WHERE {
+  
+  # 1. BIND variables so ROBOT can display them in the final report table
+  BIND(dc:definition AS ?property)
+  BIND("Missing definition (checked SKOS, RDFS, IAO)" AS ?value)
+
+  # 2. Target classes specifically (or use ?entity ?any ?o as in your original)
+  ?entity rdf:type owl:Class .
+
+  # 3. Corrected syntax: Exclude any class that DOES have a definition
+  FILTER NOT EXISTS { 
+    ?entity ?definitionProp ?anyValue .
+    FILTER (?definitionProp IN (skos:definition, rdfs:definition, obo:IAO_0000115))
+  }
+
+  # 4. Standard exclusion filters
+  FILTER NOT EXISTS { ?entity obo:IAO_0000600 ?elucidation }
+  FILTER NOT EXISTS { ?entity a owl:Ontology }
+  FILTER NOT EXISTS { ?entity a owl:NamedIndividual }
+  FILTER NOT EXISTS { ?entity owl:deprecated true }
+  FILTER NOT EXISTS {
+    ?entity rdfs:subPropertyOf oboInOwl:SubsetProperty .
+  }
+
+  # 5. Check for "Activity": ensures we only flag classes that actually contain axioms
+  FILTER EXISTS {
+    ?entity ?prop2 ?object .
+    FILTER (?prop2 != rdf:type)
+    FILTER (?prop2 != owl:equivalentClass)
+    FILTER (?prop2 != owl:disjointWith)
+    FILTER (?prop2 != owl:equivalentProperty)
+    FILTER (?prop2 != owl:sameAs)
+    FILTER (?prop2 != owl:differentFrom)
+    FILTER (?prop2 != owl:inverseOf)
+  }
+
+  FILTER (!isBlank(?entity)) 
+}
+ORDER BY ?entity
