@@ -10,11 +10,19 @@ URI := 					https://purl.org/dido
 ONT := 					dido
 EDIT_FORMAT := 			ttl
 SRC := 					$(ONT)-edit.$(EDIT_FORMAT)
-ROBOT := 				robot
+
+UNAME := $(shell uname)
+
+ifeq ($(UNAME), Linux)
+	ROBOT := 			robot
+endif
+ifeq ($(UNAME), MINGW64_NT-10.0-19045)
+	ROBOT := 			robot.bat
+endif
 
 SCRIPTSDIR := 			../scripts
 SPARQLDIR :=			../sparql
-TEMPDIR := 				tmp
+TMPDIR := 				tmp
 RELEASEDIR := 			../..
 MODULE_DIR := 			modules
 
@@ -163,18 +171,18 @@ PRESEED=$(TMPDIR)/pre_seed.txt
 
 $(SRCMERGED): $(SRC)
 	$(ROBOT) remove --input $< --select imports --trim false \
-		merge  $(patsubst %, -i %, $(OTHER_SRC)) -o .$@
+		merge  $(patsubst %, -i %, $(OTHER_SRC)) -o $(abspath $@)
 
 $(PRESEED): $(SRCMERGED)
-	$(ROBOT) query -f csv -i .$< --query ../sparql/terms.sparql .$@.tmp &&\
-	cat .$@.tmp | sort | uniq >  .$@
+	$(ROBOT) query -f csv -i $(abspath $<) --query ../sparql/terms.sparql $(abspath $@.tmp) &&\
+	cat $(abspath $@.tmp) | sort | uniq >  $(abspath $@)
 
 
 ALLSEED = $(PRESEED) \
 
 
 $(IMPORTSEED):  $(ALLSEED) 
-	if [ $(IMP) = true ]; then cat $(ALLSEED) | sort | uniq > .$@; fi
+	if [ $(IMP) = true ]; then cat $(ALLSEED) | sort | uniq > $(abspath $@); fi
 
 
 ANNOTATION_PROPERTIES=rdfs:label IAO:0000115 
