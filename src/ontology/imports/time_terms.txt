@@ -1,0 +1,5 @@
+http://www.w3.org/2006/time#ProperInterval
+http://www.w3.org/2006/time#Instant
+http://www.w3.org/2006/time#Duration
+http://www.w3.org/2006/time#hasBeginning
+http://www.w3.org/2006/time#hasEnd

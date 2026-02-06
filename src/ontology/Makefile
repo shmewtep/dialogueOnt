@@ -37,6 +37,7 @@ FORMATS = 				$(sort ttl owl)
 RELEASE_ARTEFACTS = 	$(ONT) $(ONT)-base $(ONT)-full
 
 SIO_URI := 				http://semanticscience.org/ontology/sio.owl
+TIME_URI :=				http://www.w3.org/2006/time
 
 
 # --------------------------------
@@ -72,7 +73,7 @@ all_main: $(MAIN_FILES)
 ##
 ## By default this is the cross-product of IMPORT_MODULES x FORMATS
 
-IMPORTS = sio
+IMPORTS = sio time
 IMPORT_ROOTS = $(patsubst %, imports/%_import, $(IMPORTS))
 IMPORT_OWL_FILES = $(foreach n,$(IMPORT_ROOTS), $(n).owl)
 IMPORT_FILES = $(IMPORT_OWL_FILES)
@@ -233,6 +234,14 @@ mirror/sio.owl: mirror/sio.trigger
 	if [ $(MIR) = true ] && [ $(IMP) = true ]; then $(ROBOT) convert -I $(SIO_URI) -o $@.tmp.owl && mv $@.tmp.owl $@; fi
 .PRECIOUS: mirror/%.owl
 
+
+## ONTOLOGY: time
+## Copy of time is re-downloaded whenever source changes
+mirror/time.trigger: $(SRC)
+
+mirror/time.owl: mirror/time.trigger
+	if [ $(MIR) = true ] && [ $(IMP) = true ]; then $(ROBOT) convert -I $(TIME_URI) -o $@.tmp.owl && mv $@.tmp.owl $@; fi
+.PRECIOUS: mirror/%.owl
 
 
 # ----------------------------------------
