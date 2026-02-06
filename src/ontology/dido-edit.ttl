@@ -140,6 +140,11 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
 :DialogueTranscript rdf:type owl:Class ;
                     rdfs:subClassOf sio:SIO_000069 ,
                                     [ rdf:type owl:Restriction ;
+                                      owl:onProperty sio:SIO_000059 ;
+                                      owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :UtteranceText
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
                                       owl:onProperty sio:SIO_000332 ;
                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                       owl:onClass :Dialogue
@@ -163,6 +168,10 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
 ###  http://purl.org/twc/dido#Utterance
 :Utterance rdf:type owl:Class ;
            rdfs:subClassOf sio:SIO_000006 ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty sio:SIO_000229 ;
+                             owl:someValuesFrom :UtteranceText
+                           ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty sio:SIO_000068 ;
                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
