@@ -16,6 +16,7 @@
 | **interlocutor** | `:Interlocutor` | One who takes part in a dialogue or conversation |  |  | [SIO (Role)](http://semanticscience.org/resource/SIO_000016) | Agent | Draft |
 | **utterance text** | `:UtteranceText` |  |  |  | [SIO (Information Content Entity)](http://semanticscience.org/resource/SIO_000015) | Data | Draft |
 | **dialogue transcript** | `:DialogueTranscript` | A digital or physical information content entity that provides a structured textual record of a conversation |  |  | [SIO (Information Content Entity)](http://semanticscience.org/resource/SIO_000015) | Data | Draft |
+| **utterance text** | `:UtteranceText` | A textual entity representing the output of an utterance |  |  | [SIO (Data Item)](http://semanticscience.org/resource/SIO_000069), [SIO (Language Entity)](http://semanticscience.org/resource/SIO_000069) | Data | Draft |
 
 
 

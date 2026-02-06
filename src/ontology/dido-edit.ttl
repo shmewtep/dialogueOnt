@@ -118,28 +118,19 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
 :Dialogue rdf:type owl:Class ;
           rdfs:subClassOf sio:SIO_000006 ,
                           [ rdf:type owl:Restriction ;
+                            owl:onProperty sio:SIO_000028 ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Utterance
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty sio:SIO_000132 ;
+                            owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Interlocutor
+                          ] ,
+                          [ rdf:type owl:Restriction ;
                             owl:onProperty sio:SIO_000008 ;
                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                             owl:onClass time:ProperInterval
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-
-                            owl:onProperty sio:SIO_000028 ;
-
-                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-
-                            owl:onClass :Utterance
-
-                          ] ,
-
-                          [ rdf:type owl:Restriction ;
-
-                            owl:onProperty sio:SIO_000132 ;
-
-                            owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
-
-                            owl:onClass :Interlocutor
-
                           ] ;
           rdfs:label "dialogue" ;
           skos:definition "an interactive communication between two or more entities" .
@@ -147,7 +138,12 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
 
 ###  http://purl.org/twc/dido#DialogueTranscript
 :DialogueTranscript rdf:type owl:Class ;
-                    rdfs:subClassOf sio:SIO_000069 ;
+                    rdfs:subClassOf sio:SIO_000069 ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty sio:SIO_000332 ;
+                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :Dialogue
+                                    ] ;
                     rdfs:label "dialogue transcript"@en ;
                     skos:definition "A digital or physical information content entity that provides a structured textual record of a conversation" .
 
@@ -156,13 +152,9 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
 :Interlocutor rdf:type owl:Class ;
               rdfs:subClassOf sio:SIO_000016 ,
                               [ rdf:type owl:Restriction ;
-
                                 owl:onProperty sio:SIO_000063 ;
-
                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-
                                 owl:onClass :Utterance
-
                               ] ;
               rdfs:label "interlocutor" ;
               skos:definition "One who takes part in a conversation or dialogue" .
@@ -172,31 +164,29 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
 :Utterance rdf:type owl:Class ;
            rdfs:subClassOf sio:SIO_000006 ,
                            [ rdf:type owl:Restriction ;
+                             owl:onProperty sio:SIO_000068 ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Dialogue
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty sio:SIO_000139 ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Interlocutor
+                           ] ,
+                           [ rdf:type owl:Restriction ;
                              owl:onProperty sio:SIO_000008 ;
                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onClass time:ProperInterval
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-
-                             owl:onProperty sio:SIO_000068 ;
-
-                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-
-                             owl:onClass :Dialogue
-
-                           ] ,
-
-                           [ rdf:type owl:Restriction ;
-
-                             owl:onProperty sio:SIO_000139 ;
-
-                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-
-                             owl:onClass :Interlocutor
-
                            ] ;
            rdfs:label "utterance" ;
            skos:definition "a single unit of speech in spoken language that serves some pragmatic function" .
+
+
+###  http://purl.org/twc/dido#UtteranceText
+:UtteranceText rdf:type owl:Class ;
+               rdfs:subClassOf sio:SIO_000069 ;
+               dcterms:description "a textual entity representing the output of an utterance" ;
+               rdfs:label "utterance text" .
 
 
 ###  http://semanticscience.org/resource/SIO_000000
