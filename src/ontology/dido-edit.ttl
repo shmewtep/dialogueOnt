@@ -202,7 +202,7 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
                                  owl:onProperty sio:SIO_000300 ;
                                  owl:someValuesFrom rdfs:Literal
                                ] ;
-               dcterms:description "a textual entity representing the output of an utterance" ;
+               skos:definition "a textual entity representing the output of an utterance" ;
                rdfs:label "utterance text" .
 
 

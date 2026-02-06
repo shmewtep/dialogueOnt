@@ -272,6 +272,22 @@
     
 
 
+    <!-- http://semanticscience.org/resource/SIO_000053 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000053">
+        <rdfs:subPropertyOf rdf:resource="http://semanticscience.org/resource/SIO_000028"/>
+        <owl:inverseOf rdf:resource="http://semanticscience.org/resource/SIO_000093"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <dc:identifier>SIO_000053</dc:identifier>
+        <terms:description xml:lang="en">has proper part is an antisymmetric, irreflexive (normally transitive) relation between a whole and a distinct part.</terms:description>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">has proper part</rdfs:label>
+        <skos:example xml:lang="en">a car has an engine as a proper part; a car has a piston as a proper part;</skos:example>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://semanticscience.org/resource/SIO_000059 -->
 
     <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000059">
@@ -348,6 +364,22 @@
         <resource:subset>core</resource:subset>
         <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
         <rdfs:label xml:lang="en">is part of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000093 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000093">
+        <rdfs:subPropertyOf rdf:resource="http://semanticscience.org/resource/SIO_000068"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <dc:identifier>SIO_000093</dc:identifier>
+        <terms:description xml:lang="en">is proper part of is an asymmetric, irreflexive (normally transitive) relation between a part and its distinct whole.</terms:description>
+        <resource:equivalentTo>OBO_REL:proper_part_of</resource:equivalentTo>
+        <resource:subset>core</resource:subset>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">is proper part of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -531,6 +563,33 @@
     
 
 
+    <!-- http://semanticscience.org/resource/SIO_000273 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000273">
+        <rdfs:subPropertyOf rdf:resource="http://semanticscience.org/resource/SIO_000053"/>
+        <owl:inverseOf rdf:resource="http://semanticscience.org/resource/SIO_000310"/>
+        <dc:identifier>SIO_000273</dc:identifier>
+        <terms:description xml:lang="en">has direct part is a relation to specify a part at a particular level of granularity</terms:description>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">has direct part</rdfs:label>
+        <skos:example xml:lang="en">a car has an engine as a direct part</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000310 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000310">
+        <rdfs:subPropertyOf rdf:resource="http://semanticscience.org/resource/SIO_000093"/>
+        <dc:identifier>SIO_000310</dc:identifier>
+        <terms:description xml:lang="en">is direct part of is a relation between a specific part (at some level of granularity) and its whole.</terms:description>
+        <resource:subset>core</resource:subset>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">is direct part of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://semanticscience.org/resource/SIO_000322 -->
 
     <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000322">
@@ -690,6 +749,34 @@
     
 
 
+    <!-- http://semanticscience.org/resource/SIO_000671 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000671">
+        <rdfs:subPropertyOf rdf:resource="http://semanticscience.org/resource/SIO_000008"/>
+        <owl:inverseOf rdf:resource="http://semanticscience.org/resource/SIO_000672"/>
+        <rdfs:range rdf:resource="http://semanticscience.org/resource/SIO_000115"/>
+        <dc:identifier>SIO_000671</dc:identifier>
+        <terms:description>a relation between an entity and an identifier.</terms:description>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">has identifier</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000672 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000672">
+        <rdfs:subPropertyOf rdf:resource="http://semanticscience.org/resource/SIO_000011"/>
+        <rdfs:domain rdf:resource="http://semanticscience.org/resource/SIO_000115"/>
+        <dc:identifier>SIO_000672</dc:identifier>
+        <terms:alternative>identifies</terms:alternative>
+        <terms:description>a relation between an identifier and an entity.</terms:description>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">is identifier for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -764,6 +851,12 @@
 
     <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000006">
         <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000000"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000053"/>
+                <owl:allValuesFrom rdf:resource="http://semanticscience.org/resource/SIO_000006"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <dc:identifier>SIO_000006</dc:identifier>
         <terms:description xml:lang="en">A process is an entity that is identifiable only through the unfolding of time, has temporal parts, and unless otherwise specified/predicted, cannot be identified from any instant of time in which it exists.</terms:description>
         <resource:subset>core</resource:subset>
@@ -778,6 +871,12 @@
 
     <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000015">
         <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000776"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000053"/>
+                <owl:allValuesFrom rdf:resource="http://semanticscience.org/resource/SIO_000015"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <dc:identifier>SIO_000015</dc:identifier>
         <terms:description xml:lang="en">information content entity is an object that requires some background knowledge or procedure to correctly interpret.</terms:description>
         <resource:subset>core</resource:subset>
@@ -892,6 +991,60 @@
     
 
 
+    <!-- http://semanticscience.org/resource/SIO_000108 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000108">
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000078"/>
+        <dc:identifier>SIO_000108</dc:identifier>
+        <terms:description xml:lang="en">A character is a language symbol used to construct words.</terms:description>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">character</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000114 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000114">
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000078"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000028"/>
+                <owl:someValuesFrom rdf:resource="http://semanticscience.org/resource/SIO_001040"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000273"/>
+                <owl:someValuesFrom rdf:resource="http://semanticscience.org/resource/SIO_000108"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:identifier>SIO_000114</dc:identifier>
+        <terms:description xml:lang="en">A word is the smallest free form (an item that may be expressed in isolation with semantic or pragmatic content) in a language.</terms:description>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">word</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000115 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000115">
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000179"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000672"/>
+                <owl:someValuesFrom rdf:resource="http://semanticscience.org/resource/SIO_000000"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:identifier>SIO_000115</dc:identifier>
+        <terms:description xml:lang="en">An identifier is a label that specifically refers to (identifies) an entity (instance/type).</terms:description>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">identifier</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://semanticscience.org/resource/SIO_000136 -->
 
     <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000136">
@@ -906,6 +1059,18 @@
         <terms:description xml:lang="en">A description is language entity in which elements of a language (formal or natural) are used to characterize an entity.</terms:description>
         <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
         <rdfs:label xml:lang="en">description</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000179 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000179">
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000275"/>
+        <dc:identifier>SIO_000179</dc:identifier>
+        <terms:description xml:lang="en">a label is a term that is associated with some entity</terms:description>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">label</rdfs:label>
     </owl:Class>
     
 
@@ -987,6 +1152,26 @@
         <terms:description xml:lang="en">false is a truth value in that indicates that it is not true.</terms:description>
         <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
         <rdfs:label xml:lang="en">false</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000275 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000275">
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000078"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000114"/>
+                    <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000483"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <dc:identifier>SIO_000275</dc:identifier>
+        <terms:description xml:lang="en">A term is a word or phrase used to denote one or more entities.</terms:description>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">term</rdfs:label>
     </owl:Class>
     
 
@@ -1077,6 +1262,25 @@
     
 
 
+    <!-- http://semanticscience.org/resource/SIO_000483 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000483">
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000078"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000273"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://semanticscience.org/resource/SIO_000114"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:identifier>SIO_000483</dc:identifier>
+        <terms:description xml:lang="en">A phrase is a group of words functioning as a single unit in the syntax of a sentence.</terms:description>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">phrase</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://semanticscience.org/resource/SIO_000602 -->
 
     <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000602">
@@ -1130,11 +1334,29 @@
 
     <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000776">
         <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000000"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000053"/>
+                <owl:allValuesFrom rdf:resource="http://semanticscience.org/resource/SIO_000776"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <dc:identifier>SIO_000776</dc:identifier>
         <terms:description xml:lang="en">An object is an entity that is wholly identifiable at any instant of time during which it exists.</terms:description>
         <resource:subset>core</resource:subset>
         <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
         <rdfs:label xml:lang="en">object</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_001040 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_001040">
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000078"/>
+        <dc:identifier>SIO_001040</dc:identifier>
+        <terms:description xml:lang="en">A morpheme is the smallest semantically meaningful unit in a language.</terms:description>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">morpheme</rdfs:label>
     </owl:Class>
     
 
