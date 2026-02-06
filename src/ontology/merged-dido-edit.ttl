@@ -11,15 +11,20 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix schema: <https://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @base <http://purl.org/twc/dido> .
 
 <http://purl.org/twc/dido> rdf:type owl:Ontology ;
                             dc:creator "Kelsey Rook"@en ;
+                            dcterms:description "The Dialogue and Discourse Ontology (DIDO) supports the modeling of dialogue and dialogue data." ;
                             dcterms:license "https://opensource.org/license/mit"^^xsd:anyURI ;
-                            dcterms:modified "2026-1-23" ;
+                            dcterms:modified "2026-2-4" ;
                             dcterms:title "Dialogue and Discourse Ontology (DiDO)" ;
-                            vann:preferredNamespacePrefix "dido" .
+                            vann:preferredNamespacePrefix "dido" ;
+                            vann:preferredNamespaceUri "http://purl.org/twc/dido#" ;
+                            <http://schema.org/codeRepository> "https://github.com/shmewtep/dialogueOnt"^^xsd:anyURI ;
+                            rdfs:label "DIDO" .
 
 #################################################################
 #    Annotation properties
@@ -35,6 +40,14 @@ dc:creator rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/elements/1.1/identifier
 dc:identifier rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/contributor
+dcterms:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/license
@@ -56,6 +69,10 @@ vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/vocab/vann/preferredNamespaceUri
 vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/codeRepository
+<http://schema.org/codeRepository> rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2004/02/skos/core#definition
