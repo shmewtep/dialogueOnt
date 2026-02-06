@@ -157,6 +157,10 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
 :Interlocutor rdf:type owl:Class ;
               rdfs:subClassOf sio:SIO_000016 ,
                               [ rdf:type owl:Restriction ;
+                                owl:onProperty sio:SIO_000062 ;
+                                owl:someValuesFrom :Dialogue
+                              ] ,
+                              [ rdf:type owl:Restriction ;
                                 owl:onProperty sio:SIO_000063 ;
                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                 owl:onClass :Utterance
