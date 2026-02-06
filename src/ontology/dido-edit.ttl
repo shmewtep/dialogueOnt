@@ -197,7 +197,11 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
 
 ###  http://purl.org/twc/dido#UtteranceText
 :UtteranceText rdf:type owl:Class ;
-               rdfs:subClassOf sio:SIO_000069 ;
+               rdfs:subClassOf sio:SIO_000069 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty sio:SIO_000300 ;
+                                 owl:someValuesFrom rdfs:Literal
+                               ] ;
                dcterms:description "a textual entity representing the output of an utterance" ;
                rdfs:label "utterance text" .
 
