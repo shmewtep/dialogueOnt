@@ -11,3 +11,5 @@ http://semanticscience.org/resource/SIO_000602
 http://semanticscience.org/resource/SIO_000614
 http://semanticscience.org/resource/SIO_000616
 http://semanticscience.org/resource/SIO_000776
+http://semanticscience.org/resource/SIO_000063
+http://semanticscience.org/resource/SIO_000139

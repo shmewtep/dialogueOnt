@@ -5,12 +5,14 @@
     <uri id="Imports Wizard Entry" name="https://purl.org/dido/releases/2026-02-05/imports/sio_import.owl" uri="imports/sio_import.owl"/>
     <uri id="User Entered Import Resolution" name="https://purl.org/dido/releases/2026-02-04/imports/sio_import.owl" uri="imports/sio_import.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1770400588895" name="http://semanticscience.org/ontology/sio.owl" uri="mirror/sio.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1770400588895" name="duplicate:https://purl.org/dido/dido-base.ttl" uri="dido-base.ttl"/>
-        <uri id="Automatically generated entry, Timestamp=1770400588895" name="duplicate:https://purl.org/dido/dido-base.ttl" uri="dido-base.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1770400588895" name="duplicate:https://purl.org/dido/dido-full.ttl" uri="dido-full.ttl"/>
-        <uri id="Automatically generated entry, Timestamp=1770400588895" name="duplicate:https://purl.org/dido/dido-full.ttl" uri="dido-full.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1770400588895" name="https://purl.org/dido/dido.owl" uri="dido.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1770400588895" name="https://purl.org/dido/imports/sio_import.owl" uri="imports/sio_import.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770413108099" name="http://semanticscience.org/ontology/sio.owl" uri="mirror/sio.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770413108099" name="http://www.w3.org/2006/time" uri="mirror/time.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770413108099" name="duplicate:https://purl.org/dido/dido-base.ttl" uri="dido-base.ttl"/>
+        <uri id="Automatically generated entry, Timestamp=1770413108099" name="duplicate:https://purl.org/dido/dido-base.ttl" uri="dido-base.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770413108099" name="duplicate:https://purl.org/dido/dido-full.ttl" uri="dido-full.ttl"/>
+        <uri id="Automatically generated entry, Timestamp=1770413108099" name="duplicate:https://purl.org/dido/dido-full.ttl" uri="dido-full.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770413108099" name="https://purl.org/dido/dido.owl" uri="dido.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770413108099" name="https://purl.org/dido/imports/sio_import.owl" uri="imports/sio_import.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1770413108099" name="https://purl.org/dido/imports/time_import.owl" uri="imports/time_import.owl"/>
     </group>
 </catalog>

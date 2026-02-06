@@ -321,6 +321,21 @@
     
 
 
+    <!-- http://semanticscience.org/resource/SIO_000063 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000063">
+        <rdfs:subPropertyOf rdf:resource="http://semanticscience.org/resource/SIO_000062"/>
+        <owl:inverseOf rdf:resource="http://semanticscience.org/resource/SIO_000139"/>
+        <dc:identifier>SIO_000063</dc:identifier>
+        <terms:description xml:lang="en">is agent in is a relation between an entity and a process, where the entity is present throughout the process, no permanent material change occurs, and is a causal participant in the process.</terms:description>
+        <resource:subset xml:lang="en">sadi</resource:subset>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">is agent in</rdfs:label>
+        <skos:example xml:lang="en">hexokinase is an agent in the conversion of glucose to glucose-6-phosphate</skos:example>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://semanticscience.org/resource/SIO_000068 -->
 
     <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000068">
@@ -360,6 +375,21 @@
         <resource:subset>core</resource:subset>
         <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
         <rdfs:label xml:lang="en">has participant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000139 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000139">
+        <rdfs:subPropertyOf rdf:resource="http://semanticscience.org/resource/SIO_000132"/>
+        <dc:identifier>SIO_000139</dc:identifier>
+        <terms:description xml:lang="en">has agent is a relation between a process and an entity, where the entity is present throughout the process and is a causal participant in the process.</terms:description>
+        <resource:equivalentTo>OBO_REL:has_agent</resource:equivalentTo>
+        <resource:subset xml:lang="en">sadi</resource:subset>
+        <resource:subset>core</resource:subset>
+        <rdfs:isDefinedBy rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <rdfs:label xml:lang="en">has agent</rdfs:label>
     </owl:ObjectProperty>
     
 
