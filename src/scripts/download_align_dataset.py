@@ -1,12 +1,12 @@
-import uuid
-import os
-from datasets import load_dataset
 import pandas as pd
-from rdflib import Graph, Literal, RDF, URIRef, Namespace, BNode, XSD
-from rdflib.namespace import XSD
 import csv
-
 import json
+import regex
+import uuid
+
+from rdflib import Graph, Literal, RDF, URIRef, Namespace, BNode, XSD
+# from rdflib.namespace import XSD
+
 
 # 1. Define Namespaces based on DIDO.ttl
 DIDO = Namespace("http://purl.org/twc/dido#")
@@ -119,7 +119,7 @@ def align_ami_jsonl_to_dido(jsonl_file):
     return g
 
 
-def align_daicwoz_csv_to_dido(csv_file):
+def align_daicwoz_csv_to_dido(csv_filename):
     '''
     Transform data points from DAIC-WOZ CSV format to RDF format, aligned with DIDO.
     '''
@@ -130,13 +130,21 @@ def align_daicwoz_csv_to_dido(csv_file):
     g.bind("sio", SIO)
     g.bind("time", TIME)
 
-    reader = csv.DictReader(csv_file)
-    for utterance in reader:
+    dialogue_num_pattern = regex.compile(r"^(\d{3})_TRANSCRIPT\.csv$")
+    dialogue_num = dialogue_num_pattern.match(csv_filename)
+
+    reader = csv.DictReader(csv_filename)
+    for utterance_num, utterance in enumerate(reader):
         # --- Dialogue Structure ---
         # Using meeting_id as the primary identifier for the Dialogue instance
-        dialogue_uri = EX[f"dialogue/{utterance['meeting_id']}"]
+        dialogue_uri = EX[f"dialogue/{dialogue_num}"]
         g.add((dialogue_uri, RDF.type, DIDO.Dialogue))
-        g.add((dialogue_uri, RDF.type, SIO.SIO_000006)) # sio:process
+        utterance_id = f"{utterance['meeting_id']}_{utterance_num}"
+        utterance_uri = EX[f"utterance/{utterance_id}"]
+        g.add((utterance_uri, RDF.type, DIDO.Utterance))
+
+        # Linking Utterance to the Dialogue
+        g.add((utterance_uri, SIO.SIO_000068, dialogue_uri)) # sio:is-part-of
 
         # --- DIDO-core: Participant (SIO Agent) ---
         participant_uri = EX[f"participant/{utterance['speaker_id']}"]
@@ -144,15 +152,11 @@ def align_daicwoz_csv_to_dido(csv_file):
         g.add((participant_uri, RDF.type, SIO.SIO_000397)) # sio:agent
         g.add((participant_uri, DIDO.isParticipantIn, dialogue_uri))
 
-        # --- DIDO-data: Utterance & Transcript (SIO Entity) ---
-        # Each row is an Utterance within the Dialogue
+        # --- DIDO-data: Transcript (SIO Entity) ---
         utterance_id = f"{utterance['meeting_id']}_{utterance['begin_time']}"
         utterance_uri = EX[f"utterance/{utterance_id}"]
         g.add((utterance_uri, RDF.type, DIDO.Utterance))
         g.add((utterance_uri, DIDO.hasText, Literal(utterance['text'], datatype=XSD.string)))
-
-        # Linking Utterance to the Dialogue
-        g.add((utterance_uri, SIO.SIO_000068, dialogue_uri)) # sio:is-part-of
         
         # --- Temporal duration (OWL-Time) ---
         temp_node = BNode()
