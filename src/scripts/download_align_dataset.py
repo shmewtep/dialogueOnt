@@ -58,7 +58,7 @@ def data_to_rdf(batch, graph, config):
 #            elif m["type"] == "object":
 #                obj_uri = DIDO[f"{m['obj_prefix']}{val}"]
 #                # Link Participant to Dialogue as shown in diagram
-#                graph.add((obj_uri, RDF.type, DIDO.Participant))
+#                graph.add((obj_uri, RDF.type, DIDO.Interlocutor))
 #                graph.add((obj_uri, m["pred"], dialogue_uri))
 #
 #            elif m["type"] == "temporal":
@@ -134,28 +134,32 @@ def align_daicwoz_csv_to_dido(csv_filename):
     dialogue_num = dialogue_num_pattern.match(csv_filename)
 
     reader = csv.DictReader(csv_filename)
+
+    dialogue_uri = EX[f"dialogue/{dialogue_num}"]
+    g.add((dialogue_uri, RDF.type, DIDO.Dialogue))
+
+    # Transcript/Dataset metadata
+    transcript_uri = EX[f"dialogueTranscript/{dialogue_num}"]
+    g.add((transcript_uri, RDF.type, DIDO.DialogueTranscript))
+    g.add((transcript_uri, SIO.SIO_000332, dialogue_uri)) # sio:is about
+
     for utterance_num, utterance in enumerate(reader):
         # --- Dialogue Structure ---
         # Using meeting_id as the primary identifier for the Dialogue instance
-        dialogue_uri = EX[f"dialogue/{dialogue_num}"]
-        g.add((dialogue_uri, RDF.type, DIDO.Dialogue))
         utterance_id = f"{utterance['meeting_id']}_{utterance_num}"
         utterance_uri = EX[f"utterance/{utterance_id}"]
         g.add((utterance_uri, RDF.type, DIDO.Utterance))
 
         # Linking Utterance to the Dialogue
-        g.add((utterance_uri, SIO.SIO_000068, dialogue_uri)) # sio:is-part-of
+        g.add((utterance_uri, SIO.SIO_000068, dialogue_uri)) # sio:is part of
 
         # --- DIDO-core: Participant (SIO Agent) ---
-        participant_uri = EX[f"participant/{utterance['speaker_id']}"]
-        g.add((participant_uri, RDF.type, DIDO. Participant))
-        g.add((participant_uri, RDF.type, SIO.SIO_000397)) # sio:agent
-        g.add((participant_uri, DIDO.isParticipantIn, dialogue_uri))
+        participant_uri = EX[f"participant/{dialogue_num}"]
+        g.add((participant_uri, RDF.type, DIDO.Interlocutor))
+        g.add((participant_uri, SIO.SIO_000062, dialogue_uri)) # sio:is participant in
 
         # --- DIDO-data: Transcript (SIO Entity) ---
-        utterance_id = f"{utterance['meeting_id']}_{utterance['begin_time']}"
-        utterance_uri = EX[f"utterance/{utterance_id}"]
-        g.add((utterance_uri, RDF.type, DIDO.Utterance))
+        g.add((utterance_uri))
         g.add((utterance_uri, DIDO.hasText, Literal(utterance['text'], datatype=XSD.string)))
         
         # --- Temporal duration (OWL-Time) ---
