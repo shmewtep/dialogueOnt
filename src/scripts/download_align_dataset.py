@@ -5,7 +5,7 @@ import regex
 import uuid
 
 from rdflib import Graph, Literal, RDF, URIRef, Namespace, BNode, XSD
-# from rdflib.namespace import XSD
+from rdflib.namespace import RDFS
 
 
 # 1. Define Namespaces based on DIDO.ttl
@@ -147,20 +147,27 @@ def align_daicwoz_csv_to_dido(csv_filename):
         # --- Dialogue Structure ---
         # Using meeting_id as the primary identifier for the Dialogue instance
         utterance_id = f"{utterance['meeting_id']}_{utterance_num}"
-        utterance_uri = EX[f"utterance/{utterance_id}"]
+        utterance_uri = EX[f"utterances/{utterance_id}"]
         g.add((utterance_uri, RDF.type, DIDO.Utterance))
 
         # Linking Utterance to the Dialogue
         g.add((utterance_uri, SIO.SIO_000068, dialogue_uri)) # sio:is part of
 
         # --- DIDO-core: Participant (SIO Agent) ---
-        participant_uri = EX[f"participant/{dialogue_num}"]
+        participant_uri = ''
+        if utterance['speaker'] == 'Ellie':
+            participant_uri = EX[f"interlocutors/{'ellie'}"]
+        else:
+            participant_uri = EX[f"interlocutors/{dialogue_num}"]
+
         g.add((participant_uri, RDF.type, DIDO.Interlocutor))
         g.add((participant_uri, SIO.SIO_000062, dialogue_uri)) # sio:is participant in
 
         # --- DIDO-data: Transcript (SIO Entity) ---
-        g.add((utterance_uri))
-        g.add((utterance_uri, DIDO.hasText, Literal(utterance['text'], datatype=XSD.string)))
+        utterance_text_uri = EX[f"utteranceTexts/{utterance_id}"]
+        g.add((utterance_text_uri, RDF.type, DIDO.UtteranceText))
+        g.add((utterance_uri, SIO.SIO_000232, utterance_text_uri))  # sio:has output
+        g.add((utterance_text_uri, RDFS.label, Literal(utterance['value'], datatype=XSD.string))) # sio:
         
         # --- Temporal duration (OWL-Time) ---
         temp_node = BNode()
